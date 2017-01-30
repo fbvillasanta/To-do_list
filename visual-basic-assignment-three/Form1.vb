@@ -14,9 +14,11 @@
             If isPriority.Checked() = True Then
                 priority.Add(entry)
                 prioritylist.Items.Add(entry)
+                todo.Text = ""
             Else
                 regular.Add(entry)
                 regularlist.Items.Add(entry)
+                todo.Text = ""
             End If
         End If
     End Sub
@@ -49,5 +51,6 @@
                 regularlist.Items.Add(i)
             Next
         End If
+        MsgBox("Awesome! Good for you, lad! On to the next.", 0, "Success")
     End Sub
 End Class
