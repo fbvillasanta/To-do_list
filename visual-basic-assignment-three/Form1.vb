@@ -31,26 +31,28 @@
     End Sub
 
     Private Sub remove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles remove.Click
-        If prioritylist.CheckedItems.Count > 0 Then
-            For i As Integer = 0 To prioritylist.CheckedItems.Count - 1
-                Dim index As Integer = priority.IndexOf(prioritylist.CheckedItems(i).ToString())
-                priority.RemoveAt(index)
-            Next
-            prioritylist.Items.Clear()
-            For Each i In priority
-                prioritylist.Items.Add(i)
-            Next
+        If prioritylist.CheckedItems.Count > 0 Or regularlist.CheckedItems.Count > 0 Then
+            If prioritylist.CheckedItems.Count > 0 Then
+                For i As Integer = 0 To prioritylist.CheckedItems.Count - 1
+                    Dim index As Integer = priority.IndexOf(prioritylist.CheckedItems(i).ToString())
+                    priority.RemoveAt(index)
+                Next
+                prioritylist.Items.Clear()
+                For Each i In priority
+                    prioritylist.Items.Add(i)
+                Next
+            End If
+            If regularlist.CheckedItems.Count > 0 Then
+                For i As Integer = 0 To regularlist.CheckedItems.Count - 1
+                    Dim index As Integer = regular.IndexOf(regularlist.CheckedItems(i).ToString())
+                    regular.RemoveAt(index)
+                Next
+                regularlist.Items.Clear()
+                For Each i In regular
+                    regularlist.Items.Add(i)
+                Next
+            End If
+            MsgBox("Awesome! Good for you, lad! On to the next.", 0, "Success")
         End If
-        If regularlist.CheckedItems.Count > 0 Then
-            For i As Integer = 0 To regularlist.CheckedItems.Count - 1
-                Dim index As Integer = regular.IndexOf(regularlist.CheckedItems(i).ToString())
-                regular.RemoveAt(index)
-            Next
-            regularlist.Items.Clear()
-            For Each i In regular
-                regularlist.Items.Add(i)
-            Next
-        End If
-        MsgBox("Awesome! Good for you, lad! On to the next.", 0, "Success")
     End Sub
 End Class
