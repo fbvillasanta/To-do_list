@@ -9,7 +9,7 @@
             Return
         End If
         If regular.Contains(entry) Or priority.Contains(entry) Then
-            MsgBox("Already in the list!", 0, "Warning")
+            MsgBox("Already in the list! Find something else to do.", 0, "Warning")
         Else
             If isPriority.Checked() = True Then
                 priority.Add(entry)
